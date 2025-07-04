@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit User</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-zinc-900 text-white min-h-screen flex items-center justify-center px-6"
+  >
+    <div class="max-w-md w-full">
+      <a href="/read" class="text-zinc-400 hover:text-white mb-6 inline-block"
+        >&larr; Back to Read</a
+      >
+      <h1 class="text-3xl font-bold mb-6 text-center">Edit User</h1>
+
+      <form
+        action="/edit/<%= user._id %>"
+        method="POST"
+        class="flex flex-col gap-4 bg-zinc-800 p-6 rounded-xl shadow-lg"
+      >
+        <input
+          name="name"
+          type="text"
+          value="<%= user.name %>"
+          placeholder="Full Name"
+          class="px-4 py-3 bg-zinc-700 rounded-lg border border-zinc-600"
+          required
+        />
+        <input
+          name="email"
+          type="email"
+          value="<%= user.email %>"
+          placeholder="Email Address"
+          class="px-4 py-3 bg-zinc-700 rounded-lg border border-zinc-600"
+          required
+        />
+        <input
+          name="image"
+          type="text"
+          value="<%= user.image %>"
+          placeholder="Image URL"
+          class="px-4 py-3 bg-zinc-700 rounded-lg border border-zinc-600"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-green-600 hover:bg-green-700 transition-colors text-white py-3 rounded-lg font-semibold"
+        >
+          Update User
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
