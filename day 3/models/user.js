@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.connect('mongodb://localhost:27017/testaapii');
+mongoose.connect("mongodb://localhost:27017/testaapii");
 
 const userSchema = new mongoose.Schema({
     image: String,
@@ -8,4 +8,4 @@ const userSchema = new mongoose.Schema({
     name: String
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

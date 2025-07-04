@@ -4,13 +4,13 @@ const port = 3000;
 const path = require("path");
 const userModel = require("./models/user");
 
+app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("index.ejs");
 });
 
 app.get("/read", async (req, res) => {
@@ -25,13 +25,31 @@ app.get("/read", async (req, res) => {
 app.post("/create", async (req, res) => {
     try {
         const { name, email, image } = req.body;
-        const createUser = await userModel.create({ name, email, image });
-        res.redirect("/read"); // optional: redirect after creation
+        await userModel.create({ name, email, image });
+        res.redirect("/read");
     } catch (err) {
         res.status(500).send("Error creating user");
     }
 });
+app.get("/edit/:id", async (req, res) => {
+    try {
+        const user = await userModel.findById(req.params.id);
+        res.render("edit", { user });
+    } catch (err) {
+        res.status(500).send("Error fetching user for edit");
+    }
+});
+
+app.post("/delete/:id", async (req, res) => {
+    try {
+        await userModel.findByIdAndDelete(req.params.id);
+        res.redirect("/read");
+    } catch (err) {
+        res.status(500).send("Error deleting user");
+    }
+});
+
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`http://localhost:${port}`);
 });
