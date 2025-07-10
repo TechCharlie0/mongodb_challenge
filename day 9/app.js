@@ -29,6 +29,20 @@ app.post('/contacts', async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 });
+app.get('/create-sample', async (req, res) => {
+    try {
+        const sample = await Contact.create({
+            name: 'Sample User',
+            phone: '1234567890',
+            email: 'sample@example.com',
+            address: 'Pokhara'
+        });
+        res.send(sample);
+    } catch (err) {
+        res.status(400).send(err.message);
+    }
+});
+
 
 // GET — all contacts
 app.get('/contacts', async (req, res) => {
@@ -40,7 +54,7 @@ app.get('/contacts', async (req, res) => {
     }
 });
 
-// GET — contact by ID (Day 2)
+// GET — contact by ID
 app.get('/contacts/:id', async (req, res) => {
     try {
         const contact = await Contact.findById(req.params.id);
