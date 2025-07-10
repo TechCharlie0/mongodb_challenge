@@ -5,10 +5,10 @@ const Contact = require('./models/contact');
 const app = express();
 const PORT = 3000;
 
-// Middleware to parse JSON
+// Middleware
 app.use(express.json());
 
-// Connect to MongoDB
+// MongoDB connection
 mongoose.connect('mongodb://127.0.0.1:27017/contactdb', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -16,21 +16,44 @@ mongoose.connect('mongodb://127.0.0.1:27017/contactdb', {
     .then(() => console.log(' MongoDB connected'))
     .catch((err) => console.error(' MongoDB connection error:', err));
 
-// POST /contacts — create new contact
+// Routes
+
+// POST — create a contact
 app.post('/contacts', async (req, res) => {
     try {
         const { name, phone, email, address } = req.body;
         const newContact = new Contact({ name, phone, email, address });
         await newContact.save();
-        console.log('New Contact Created:', newContact);
         res.status(201).json(newContact);
     } catch (err) {
-        console.error('Error creating contact:', err.message);
         res.status(400).json({ error: err.message });
     }
 });
 
-// Start server
+// GET — all contacts
+app.get('/contacts', async (req, res) => {
+    try {
+        const contacts = await Contact.find();
+        res.json(contacts);
+    } catch (err) {
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+// GET — contact by ID (Day 2)
+app.get('/contacts/:id', async (req, res) => {
+    try {
+        const contact = await Contact.findById(req.params.id);
+        if (!contact) {
+            return res.status(404).json({ error: 'Contact not found' });
+        }
+        res.json(contact);
+    } catch (err) {
+        res.status(400).json({ error: 'Invalid ID format' });
+    }
+});
+
+// Server start
 app.listen(PORT, () => {
     console.log(` Server running at http://localhost:${PORT}`);
 });
