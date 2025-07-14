@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Intro</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 p-6">
+    <div class="bg-white rounded-lg shadow-md p-6 max-w-md mx-auto">
+      <h2 class="text-2xl font-bold mb-4">Edit Intro Details</h2>
+      <form action="/edit" method="POST" class="space-y-4">
+        <div>
+          <label class="block text-gray-700">Lives</label>
+          <input
+            type="text"
+            name="lives"
+            value="<%= intro.lives %>"
+            class="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
+          <label class="block text-gray-700">Studied At</label>
+          <input
+            type="text"
+            name="studied"
+            value="<%= intro.studied %>"
+            class="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
+          <label class="block text-gray-700">From</label>
+          <input
+            type="text"
+            name="from"
+            value="<%= intro.from %>"
+            class="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div class="flex justify-between">
+          <a href="/" class="text-blue-600 hover:underline">Cancel</a>
+          <button
+            type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,18 +1,59 @@
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
+const multer = require("multer");
 
 const app = express();
 
-// Set EJS as view engine
+// View engine setup
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Static files (images, css, js)
+// Static files
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/uploads', express.static(path.join(__dirname, "uploads")));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Route
+// Multer setup for file uploads
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "uploads/");
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + "-" + file.originalname);
+    }
+});
+const upload = multer({ storage });
+
+// In-memory data
+let introData = {
+    lives: "Bharatpur, Nepal",
+    studied: "United Technical College",
+    from: "Chitwan",
+};
+
+let lastPost = null;
+
+// Routes
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("index", { intro: introData, post: lastPost });
+});
+
+app.get("/edit", (req, res) => {
+    res.render("edit", { intro: introData });
+});
+
+app.post("/edit", (req, res) => {
+    const { lives, studied, from } = req.body;
+    introData = { lives, studied, from };
+    res.redirect("/");
+});
+
+app.post("/upload", upload.single("media"), (req, res) => {
+    const feeling = req.body.feeling || '';
+    const filePath = req.file ? `/uploads/${req.file.filename}` : '';
+    lastPost = { feeling, filePath };
+    res.redirect("/");
 });
 
 // Start server
