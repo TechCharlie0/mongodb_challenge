@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="border-t border-gray-200 mt-4 px-4 md:px-6">
+      <ul
+        class="flex justify-center md:justify-start space-x-4 md:space-x-8 text-gray-600 text-sm md:text-base font-medium"
+      >
+        <li>
+          <a
+            href="/"
+            class="py-3 block <%= activePage === 'posts' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+          >
+            Posts
+          </a>
+        </li>
+        <li>
+          <a
+            href="/about"
+            class="py-3 block <%= activePage === 'about' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            href="/friends"
+            class="py-3 block <%= activePage === 'friends' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+          >
+            Friends
+          </a>
+        </li>
+        <li>
+          <a
+            href="/photos"
+            class="py-3 block <%= activePage === 'photos' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+          >
+            Photos
+          </a>
+        </li>
+        <li>
+          <a
+            href="/videos"
+            class="py-3 block <%= activePage === 'videos' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+          >
+            Videos
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

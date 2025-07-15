@@ -114,15 +114,46 @@
           <ul
             class="flex justify-center md:justify-start space-x-4 md:space-x-8 text-gray-600 text-sm md:text-base font-medium"
           >
-            <li
-              class="py-3 border-b-2 border-blue-600 text-blue-600 cursor-pointer"
-            >
-              Posts
+            <li>
+              <a
+                href="/"
+                class="py-3 block <%= activePage === 'posts' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                Posts
+              </a>
             </li>
-            <li class="py-3 hover:text-gray-800 cursor-pointer">About</li>
-            <li class="py-3 hover:text-gray-800 cursor-pointer">Friends</li>
-            <li class="py-3 hover:text-gray-800 cursor-pointer">Photos</li>
-            <li class="py-3 hover:text-gray-800 cursor-pointer">Videos</li>
+            <li>
+              <a
+                href="/about"
+                class="py-3 block <%= activePage === 'about' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="/friends"
+                class="py-3 block <%= activePage === 'friends' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                Friends
+              </a>
+            </li>
+            <li>
+              <a
+                href="/photos"
+                class="py-3 block <%= activePage === 'photos' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                Photos
+              </a>
+            </li>
+            <li>
+              <a
+                href="/videos"
+                class="py-3 block <%= activePage === 'videos' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                Videos
+              </a>
+            </li>
           </ul>
         </nav>
       </section>

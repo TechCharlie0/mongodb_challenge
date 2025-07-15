@@ -34,21 +34,53 @@ let introData = {
 
 let lastPost = null;
 
-// Routes
+// ✅ Routes
+
+// Home Page (Posts)
 app.get("/", (req, res) => {
-    res.render("index", { intro: introData, post: lastPost });
+    res.render("index", {
+        intro: introData,
+        post: lastPost,
+        activePage: "posts"
+    });
 });
 
+// About Page
+app.get("/about", (req, res) => {
+    res.render("about", { activePage: "about" });
+});
+
+// Friends Page
+app.get("/friends", (req, res) => {
+    res.render("friends", { activePage: "friends" });
+});
+
+// Photos Page
+app.get("/photos", (req, res) => {
+    res.render("photos", { activePage: "photos" });
+});
+
+// Videos Page
+app.get("/videos", (req, res) => {
+    res.render("videos", { activePage: "videos" });
+});
+
+// Edit Intro Page
 app.get("/edit", (req, res) => {
-    res.render("edit", { intro: introData });
+    res.render("edit", {
+        intro: introData,
+        activePage: "posts"
+    });
 });
 
+// Save edited intro data
 app.post("/edit", (req, res) => {
     const { lives, studied, from } = req.body;
     introData = { lives, studied, from };
     res.redirect("/");
 });
 
+// Upload a post
 app.post("/upload", upload.single("media"), (req, res) => {
     const feeling = req.body.feeling || '';
     const filePath = req.file ? `/uploads/${req.file.filename}` : '';

@@ -1,0 +1,7 @@
+CREATE TABLE users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100),
+  lives VARCHAR(100),
+  studied VARCHAR(100),
+  origin VARCHAR(100)
+);
