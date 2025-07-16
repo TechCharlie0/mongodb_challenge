@@ -1,14 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <%- include('partials/head') %>
   </head>
-  <body class="bg-gray-100">
-    <%- include('partials/header', { activePage: 'photos' }) %>
+ <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f0f2f5; /* Facebook light gray background */
+      }
+      /* Custom scrollbar for better aesthetics */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col items-center">
+    <!-- header -->
+    <header
+      class="w-full bg-white shadow-sm py-3 px-4 md:px-8 lg:px-16 flex justify-center items-center fixed top-0 z-10"
+    >
+      <h1 class="text-2xl font-bold text-blue-600">Facebook Profile</h1>
+    </header>
 
-    <div class="p-6">
-      <h1 class="text-2xl font-bold mb-4">Photos</h1>
-      <p>This is the Photos page content.</p>
+    <main class="w-full max-w-4xl mt-16 md:mt-20 px-4 md:px-0">
+      <!-- Profile Header Section -->
+      <section class="bg-white rounded-lg shadow-md overflow-hidden">
+        <!-- Cover Photo -->
+        <div class="relative h-48 md:h-64 bg-gray-300">
+          <img
+            src="./img/cover-pic.jpg"
+            alt="Cover Photo"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+          ></div>
+        </div>
+
+        <!-- Profile Picture and Info -->
+        <div
+          class="flex flex-col md:flex-row items-center md:items-end p-4 md:p-6 -mt-16 md:-mt-24 z-10 relative"
+        >
+          <div
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-lg overflow-hidden bg-gray-200"
+          >
+            <img
+              src="img/isha-profile.jpg"
+              alt="Profile Picture"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="md:ml-6 mt-4 md:mt-0 text-center md:text-left flex-grow">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+              Isha kandel
+            </h2>
+            <p class="text-gray-600 text-lg md:text-xl mt-1">1.2k Followers</p>
+            <div class="mt-4 flex justify-center md:justify-start space-x-2">
+              <button
+                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 inline-block mr-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Add Friend
+              </button>
+              <button
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 inline-block mr-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M15 8a3 3 0 10-2.977-2.977l-1.629 1.629a3 3 0 10-4.242 0L6.75 7.252A3 3 0 105 10a3 3 0 002.247-2.927l1.629-1.629a3 3 0 104.242 0l1.629 1.629A3 3 0 1015 8z"
+                  />
+                </svg>
+                Message
+              </button>
+            </div>
+          </div>
+        </div>
+ <nav class="border-t border-gray-200 mt-4 px-4 md:px-6">
+          <ul
+            class="flex justify-center md:justify-start space-x-4 md:space-x-8 text-gray-600 text-sm md:text-base font-medium"
+          >
+            <li>
+              <a
+                href="/"
+                class="py-3 block <%= activePage === 'posts' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                Posts
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+                class="py-3 block <%= activePage === 'about' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="/friends"
+                class="py-3 block <%= activePage === 'friends' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                Friends
+              </a>
+            </li>
+            <li>
+              <a
+                href="/photos"
+                class="py-3 block <%= activePage === 'photos' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                Photos
+              </a>
+            </li>
+            <li>
+              <a
+                href="/videos"
+                class="py-3 block <%= activePage === 'videos' ? 'border-b-2 border-blue-600 text-blue-600' : 'hover:text-gray-800' %>"
+              >
+                Videos
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
     </div>
+    <div>
+        <h1 class="text-3xl font-bold text-center mt-8">
+          This is the photo page
+        </h1>
+      </div>
   </body>
 </html>
