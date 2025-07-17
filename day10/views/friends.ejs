@@ -161,10 +161,291 @@
       
       
     </div>
-    <div>
-        <h1 class="text-3xl font-bold text-center mt-8">
-          This is the Friends page
-        </h1>
-      </div>
+    <main class="w-full max-w-4xl ">
+    <section class="bg-white rounded-lg shadow-md p-4 mb-4">
+        <div class="flex items-center mb-4">
+            <h2 class="text-2xl font-bold text-gray-900 mr-4">Friends</h2>
+            <div class="relative flex-grow">
+                <input
+                    type="text"
+                    placeholder="Search friends"
+                    class="w-full pl-10 pr-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white transition duration-200"
+                />
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                </svg>
+            </div>
+            <div class="ml-4 flex space-x-2">
+                <button
+                    class="bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-4 rounded-lg transition duration-200 ease-in-out"
+                >
+                    Friend requests
+                </button>
+                <button
+                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition duration-200 ease-in-out"
+                >
+                    Find Friends
+                </button>
+                <button
+                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 p-2 rounded-full transition duration-200 ease-in-out"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                    >
+                        <path
+                            d="M10 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"
+                        />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <nav class="border-t border-gray-200 pt-4 mt-4">
+            <ul class="flex overflow-x-auto space-x-6 text-gray-600 text-sm md:text-base font-medium pb-2">
+                <li>
+                    <a
+                        href="/friends"
+                        class="py-2 block border-b-2 border-blue-600 text-blue-600 whitespace-nowrap"
+                    >
+                        Friends
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        class="py-2 block hover:text-gray-800 whitespace-nowrap"
+                    >
+                        Recently Added
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        class="py-2 block hover:text-gray-800 whitespace-nowrap"
+                    >
+                        Birthdays
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        class="py-2 block hover:text-gray-800 whitespace-nowrap"
+                    >
+                        College
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        class="py-2 block hover:text-gray-800 whitespace-nowrap"
+                    >
+                        Hometown
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        class="py-2 block hover:text-gray-800 whitespace-nowrap"
+                    >
+                        Followers
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        class="py-2 block hover:text-gray-800 whitespace-nowrap"
+                    >
+                        Following
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <!-- <img
+                    src="img/susmita.jpg"
+                    alt="Susmita Dhungana"
+                    class="w-16 h-16 rounded-full object-cover mr-4"
+                /> -->
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-900">Susmita Dhungana</h4>
+                    <p class="text-gray-600 text-sm">103 mutual friends</p>
+                </div>
+            </div>
+            <button
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 p-2 rounded-full transition duration-200 ease-in-out"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"
+                    />
+                </svg>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <!-- <img
+                    src="img/riya.jpg"
+                    alt="Riya Kandel"
+                    class="w-16 h-16 rounded-full object-cover mr-4"
+                /> -->
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-900">Riya Kandel</h4>
+                    <p class="text-gray-600 text-sm">96 mutual friends</p>
+                </div>
+            </div>
+            <button
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 p-2 rounded-full transition duration-200 ease-in-out"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"
+                    />
+                </svg>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <!-- <img
+                    src=""
+                    alt="Czan Poudel"
+                    class="w-16 h-16 rounded-full object-cover mr-4"
+                /> -->
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-900">Czan Poudel</h4>
+                    <p class="text-gray-600 text-sm">38 mutual friends</p>
+                </div>
+            </div>
+            <button
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 p-2 rounded-full transition duration-200 ease-in-out"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"
+                    />
+                </svg>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <!-- <img
+                    src=""
+                    alt="Savin Basnet"
+                    class="w-16 h-16 rounded-full object-cover mr-4"
+                /> -->
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-900">Savin Basnet</h4>
+                    <p class="text-gray-600 text-sm">64 mutual friends</p>
+                </div>
+            </div>
+            <button
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 p-2 rounded-full transition duration-200 ease-in-out"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"
+                    />
+                </svg>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <!-- <img
+                    src=""
+                    alt="Priyanka Koirala"
+                    class="w-16 h-16 rounded-full object-cover mr-4"
+                /> -->
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-900">Priyanka Koirala</h4>
+                    <p class="text-gray-600 text-sm">93 mutual friends</p>
+                </div>
+            </div>
+            <button
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 p-2 rounded-full transition duration-200 ease-in-out"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"
+                    />
+                </svg>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <!-- <img
+                    src=""
+                    alt="Smriti Bhattarai"
+                    class="w-16 h-16 rounded-full object-cover mr-4"
+                /> -->
+                <div>
+                    <h4 class="font-semibold text-lg text-gray-900">Smriti Bhattarai</h4>
+                    <p class="text-gray-600 text-sm">51 mutual friends</p>
+                </div>
+            </div>
+            <button
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 p-2 rounded-full transition duration-200 ease-in-out"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"
+                    />
+                </svg>
+            </button>
+        </div>
+
+        </section>
+</main>
   </body>
 </html>
