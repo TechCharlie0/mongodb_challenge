@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - HeartMatch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8 space-y-6">
+      <header class="text-center">
+        <h1 class="text-4xl font-extrabold text-pink-600 mb-2">HeartMatch</h1>
+        <p class="text-gray-600">Login to find your perfect match!</p>
+      </header>
+
+      <% if (typeof error !== 'undefined') { %>
+      <p class="text-red-500 text-center"><%= error %></p>
+      <% } %>
+
+      <form action="/login" method="POST" class="flex flex-col space-y-4">
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+          class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        />
+        <button
+          type="submit"
+          class="bg-pink-500 text-white p-3 rounded-lg font-semibold hover:bg-pink-600 transition duration-300 ease-in-out shadow-md"
+        >
+          Login
+        </button>
+      </form>
+
+      <p class="text-center text-gray-500 text-sm">
+        Don't have an account?
+        <a href="/signup" class="text-purple-600 hover:underline"
+          >Sign up here</a
+        >.
+      </p>
+    </div>
+  </body>
+</html>
